@@ -1,0 +1,212 @@
+:root{
+    --blue-gray-dark:hsl(217, 19%, 35%);
+    --blue-dark:hsl(214, 17%, 51%);
+    --blue-gray:hsl(212, 23%, 69%);
+    --blue-gray-light:hsl(210, 46%, 95%);
+    --fs:13px
+
+}
+*{
+    font-family: 'Manrope', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-color: var(--blue-gray-light);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* start styling */
+main{
+    display: flex;
+    box-shadow: 2px 3px 4px hsl(217deg 19% 35% / 9%);
+
+    
+}
+
+main > .img{
+    width: 320px;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+main .cart-content{
+    background-color: white;
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px;
+    padding: 30px;
+    border-top-right-radius:8px ;
+    border-bottom-right-radius: 8px;
+
+}
+
+main .cart-content h1{
+    margin: 0px;
+    color: var(--blue-gray-dark);
+    font-weight: 700;
+    font-size: 22px;
+
+
+}
+main .cart-content p{
+    font-weight: 500;
+    color: var(--blue-dark);
+    font-size: var(--fs);
+    line-height: 1.7;
+
+
+}
+main .cart-content .footer> img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+main .cart-content .footer{
+    display: flex;
+    gap: 18px;
+
+}
+main .cart-content .footer h2{
+    font-size: 15px;
+    color: var(--blue-gray-dark);
+    font-weight: 700;
+}
+.footer span{
+        color: var(--blue-gray);
+    font-size: var(--fs);
+}
+main .cart-content .footer .share button{
+    background: var(--blue-gray-light);
+    padding: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.share button:hover{
+    background-color: var(--blue-dark) !important;
+
+}
+.share button:hover >img{
+    filter: brightness(3.5);
+}
+main .cart-content .footer .share button img{
+    width: 18px;
+    transition: 0.3s;
+}
+main .cart-content .footer .share{
+    margin: 0 0 0 auto;
+    position: relative;
+}
+
+main  .footer .share .share-container{
+position: absolute;
+    display: flex;
+    background-color: var(--blue-gray-dark);
+    gap: 17px;
+    padding: 15px 30px;
+    border-radius: 9px;
+    top: -178%;
+    right: -280%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+
+main .footer .share .share-container::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 18px solid var(--blue-gray-dark);
+}
+main .footer .share .share-container h3{
+    color: var(--blue-gray);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--fs);
+    letter-spacing: 5px;
+}
+
+@media (max-width:930px) {
+    main{
+        width: 375px;
+        flex-direction: column;
+        position: relative;
+        padding-bottom: 0px;
+    }
+    main .img{
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0px;
+    }
+    main .cart-content{
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 8px;
+    }
+    main .img ,main .cart-content{
+        width: 100%;
+        padding-bottom: 0px;
+    }
+    main .share{
+    position: unset !important;
+    }
+    main .footer{
+    height: 73px;
+    align-items: center;
+    }
+    main .share button{
+    z-index: 5;
+    position: relative;
+    }
+    main .share .share-container{
+        bottom: 0px !important;
+        top: unset !important;
+        right: unset !important;
+        left: 0px !important;
+        height: 73px;
+        padding:15px 30px!important;
+        align-items: center;
+        width: 100%;
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+    .share-container::after{
+        display: none;
+    }
+    
+}
+@media (max-width:400px) {
+    main{
+        width: 95%;
+    }
+    
+}
+
+/* active share button */
+.active{
+   background-color: var(--blue-dark) !important;
+}
+.active img{
+       filter: brightness(3.5);
+}
+.active + .share-container{
+    visibility: visible !important;
+    opacity: 1 !important;
+
+}
